@@ -77,3 +77,14 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+- [#1](https://github.com/wszubryt/rig-handover-challenge/issues/1)
+- [#2](https://github.com/wszubryt/rig-handover-challenge/issues/2)
+- [#3](https://github.com/wszubryt/rig-handover-challenge/issues/3)
+- [#4](https://github.com/wszubryt/rig-handover-challenge/issues/4)
+- [#5](https://github.com/wszubryt/rig-handover-challenge/issues/5)
+- [#6](https://github.com/wszubryt/rig-handover-challenge/issues/6)
+- [#7](https://github.com/wszubryt/rig-handover-challenge/issues/7)
+- [#8](https://github.com/wszubryt/rig-handover-challenge/issues/8)
