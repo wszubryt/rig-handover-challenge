@@ -80,6 +80,7 @@ describe('digest routes', () => {
     ]);
     expect(page.status).toBe(200);
     const html = await page.text();
+    expect(html).toContain('bad lines: 1');
     expect(html).toContain('surviving-job');
     expect(html).toContain('Lee');
     expect(html).not.toContain('{not json');

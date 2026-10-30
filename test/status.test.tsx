@@ -13,7 +13,10 @@ describe('status board', () => {
     const html = await res.text();
     expect(res.status).toBe(200);
     expect(html).toContain('TEST-MARKER');
-    expect(html).toContain('2026-10-28');
+    for (const night of ['2026-10-27', '2026-10-28']) {
+      expect(html).toContain(`href="/digest/${night}"`);
+      expect((await createApp(config).request(`/digest/${night}`)).status).toBe(200);
+    }
   });
 
   it('links nights with counts of jobs by their last status', async () => {

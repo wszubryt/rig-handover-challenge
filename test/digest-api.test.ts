@@ -23,16 +23,17 @@ describe('digest JSON', () => {
     ].join('\n'));
     const res = await app.request('/api/digest/2026-10-28');
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual(readNight(runsDir, '2026-10-28')?.rows);
+    expect(await res.json()).toEqual(readNight(runsDir, '2026-10-28'));
+    expect(readNight(runsDir, '2026-10-28')?.badLines).toBe(1);
     expect(readNight(runsDir, '2026-10-28')?.rows.map((row) => row.job)).toEqual(['a', 'z']);
   });
 
-  it('returns an empty array for an empty night and 404 for a missing night', async () => {
+  it('returns an empty digest for an empty night and 404 for a missing night', async () => {
     const { runsDir, app } = setup();
     writeFileSync(join(runsDir, '2026-10-28.jsonl'), '');
     const empty = await app.request('/api/digest/2026-10-28');
     expect(empty.status).toBe(200);
-    expect(await empty.json()).toEqual([]);
+    expect(await empty.json()).toEqual({ rows: [], badLines: 0 });
     expect((await app.request('/api/digest/2026-10-29')).status).toBe(404);
   });
 });
